@@ -1,0 +1,29 @@
+---
+title: "My awesome website"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+---
+
+# This is Jeff's awesome website
+
+![](https://media.giphy.com/media/drXGoW1iudhKw/giphy.gif)
+
+# Adding links
+
+Brackets indicate the text that will appear on the page, then in parentheses is the link.
+
+[google](google.com)
+
+# Adding images
+
+Image syntax is an exclamation mark with brackets, with file name or path to file with name in parentheses (put file inside the repository). If use web link, download local version to ensure later you don't get an error if it's moved/deleted/etc.
+
+![]()
+
+
+
+
+
