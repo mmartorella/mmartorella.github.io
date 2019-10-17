@@ -4,7 +4,6 @@ output:
   html_document:
     toc: true
     toc_float: true
-    theme: cerulean
 ---
 
 # This is Molly's awesome website
@@ -28,6 +27,8 @@ Image syntax is an exclamation mark with brackets, with file name or path to fil
 
 ![]()
 
+# Navigation
 
+set up in text file and save as _site.yaml
 
 
