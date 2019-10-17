@@ -31,4 +31,10 @@ Image syntax is an exclamation mark with brackets, with file name or path to fil
 
 set up in text file and save as _site.yaml
 
+# Build
 
+use to render entire website to check it all works.
+
+# Bootswatch
+
+this is where to get all the themes from. (obvi can also get from elsewhere, but this is all within R already). Not really worth it to learn the html you need to make your own special theme.
