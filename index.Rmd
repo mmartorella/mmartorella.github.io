@@ -15,7 +15,7 @@ output:
 
 Brackets indicate the text that will appear on the page, then in parentheses is the link.
 
-[google](google.com)
+[google](https://www.google.com)
 
 # Adding images
 
