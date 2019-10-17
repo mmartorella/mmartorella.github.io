@@ -7,9 +7,14 @@ output:
     theme: cerulean
 ---
 
-# This is Jeff's awesome website
+# This is Molly's awesome website
 
 ![](https://media.giphy.com/media/drXGoW1iudhKw/giphy.gif)
+
+
+# Set up a link to another page:
+
+Learn about me [here](about.html)
 
 # Adding links
 
@@ -22,7 +27,6 @@ Brackets indicate the text that will appear on the page, then in parentheses is 
 Image syntax is an exclamation mark with brackets, with file name or path to file with name in parentheses (put file inside the repository). If use web link, download local version to ensure later you don't get an error if it's moved/deleted/etc.
 
 ![]()
-
 
 
 
