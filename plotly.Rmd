@@ -109,6 +109,10 @@ ggplotly(box_ggplot)
 
 ```
 
+Plotly is a little bit better visually though.
+
+But, ggplot way is really great for investigating outlying data points and getting more identifying information (better than having to do filtering etc.).
+
 
 
 
