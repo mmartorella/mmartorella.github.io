@@ -2,11 +2,12 @@
 title: "Plotly"
 output: 
   html_document:
+    code_folding: hide
     toc: true
     toc_float: true
 ---
 
-I interactive graphics time, wooo.
+Interactive graphics time, wooo.
 
 ```{r}
 
@@ -76,6 +77,43 @@ nyc_airbnb %>%
   plot_ly(x = ~neighbourhood, y = ~n, color = ~neighbourhood, type = "bar")
 
 ```
+
+Can put ggplot object into ggplotly() to convert ggplot object to a plotly plot.
+
+```{r}
+
+scatter_ggplot = 
+  nyc_airbnb %>%
+  ggplot(aes(x = lat, y = long, color = price)) +
+  geom_point(alpha = 0.25) +
+  scale_color_viridis() +
+  coord_cartesian() +
+  theme_classic()
+
+ggplotly(scatter_ggplot)
+
+```
+
+```{r}
+
+box_ggplot = 
+  inner_join(nyc_airbnb, common_neighborhoods,
+             by = "neighbourhood") %>% 
+  mutate(neighbourhood = fct_reorder(neighbourhood, price)) %>% 
+  ggplot(aes(x = neighbourhood, y = price, fill = neighbourhood)) +
+  geom_boxplot() +
+  theme_classic() + 
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+ggplotly(box_ggplot)
+
+```
+
+
+
+
+
+
 
 
 
