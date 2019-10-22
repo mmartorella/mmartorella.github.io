@@ -51,3 +51,31 @@ nyc_airbnb %>%
 
 ```
 
+```{r}
+
+common_neighborhoods =
+  nyc_airbnb %>% 
+  count(neighbourhood, sort = TRUE) %>% 
+  top_n(8) %>% 
+  select(neighbourhood)
+
+inner_join(nyc_airbnb, common_neighborhoods, by = "neighbourhood") %>% 
+  mutate(neighbourhood = fct_reorder(neighbourhood, price)) %>% 
+  plot_ly(y = ~price, color = ~neighbourhood, type = "box",
+          colors = "Set2")
+
+```
+
+can single click on legend labels to remove from plot, or can double click on one to isolate just that one.
+
+```{r}
+
+nyc_airbnb %>% 
+  count(neighbourhood) %>% 
+  mutate(neighbourhood = fct_reorder(neighbourhood, n)) %>% 
+  plot_ly(x = ~neighbourhood, y = ~n, color = ~neighbourhood, type = "bar")
+
+```
+
+
+
