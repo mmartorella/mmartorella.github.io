@@ -1,9 +1,7 @@
 ---
 title: "Molly Martorella"
 output: 
-  html_document:
-    toc: true
-    toc_float: true
+  html_document
 ---
 
 I am an MD/PhD student at Columbia University, and I currently work at the New York Genome Center in Dr. Tuuli Lappalainen's lab studying functional genomic variation. 
