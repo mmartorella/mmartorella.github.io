@@ -13,7 +13,7 @@ Read further for a brief overview of my work, or skip straight to my [biosketch]
 
 # Current Research
 
-My current research project investigates novel RNA-sequencing methods that would enable massive scaling of transcriptome studies. The result of this project would increase sample sizes and thus alleviate statistical constraints to transcriptome analyses such that functional genomic regulatory mechanisms can be understood.
+My current research project investigates novel RNA-sequencing methods that will enable massive scaling of transcriptome studies. The result of this project will increase sample sizes and thus alleviate statistical constraints to transcriptome analyses such that functional genomic regulatory mechanisms can be understood.
 
 A second aim of my PhD is to use whole genome sequencing and expression data to better understand disease risk.
 
@@ -23,7 +23,7 @@ A second aim of my PhD is to use whole genome sequencing and expression data to 
 
 In the summer of 2012 I was selected for the Materials Research Science and Engineering Center REU at UMASS Amherst. I worked in Dr. Todd Emrick's lab synthesizing copolymer micelles for targeted drug delivery. The resultant publication from this work can be found [here](https://www.ncbi.nlm.nih.gov/pubmed/23742055).
 
-At Oberlin, I worked in Dr. Michael Nee's lab I worked on synthesizing polymers for use in water filters.
+At Oberlin, I worked in Dr. Michael Nee's lab on synthesizing polymers for use in water filters.
 
 ### Molecular and Behavioral Neurobiology
 
@@ -31,7 +31,7 @@ For the summers of 2013 and 2014 I worked in Dr. Richard Huganir's lab at Johns 
 
 While at Oberlin, I studied the neuroprotective effects of estrogen in a schizophrenic rat model in Dr. Jan Thornton's lab.
 
-After college I joined Dr. Chistopher Deppmann's lab at the University of Virginia where I studied the role of exosomal signaling in sympathetic neurodevelopment. In addition to my research project, I menteed an undergraduate student, who is now pursuing a PhD in neuroscience at UCSD, and I wrote a [review](https://www.ncbi.nlm.nih.gov/pubmed/28215292) of the role of Coronin-1A, an actin binding protein, in neuronal signaling.
+After college I joined Dr. Chistopher Deppmann's lab at the University of Virginia where I studied the role of exosomal signaling in sympathetic neurodevelopment. In addition to my research project, I mentored an undergraduate student, who is now pursuing a PhD in neuroscience at UCSD, and I wrote a [review](https://www.ncbi.nlm.nih.gov/pubmed/28215292) of the role of Coronin-1A, an actin binding protein, in neuronal signaling.
 
 
 
