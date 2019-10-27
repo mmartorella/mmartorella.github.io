@@ -1,41 +1,16 @@
 ---
-title: "My awesome website"
+title: "Molly Martorella"
 output: 
   html_document:
     toc: true
     toc_float: true
 ---
 
-# This is Molly's awesome website
+I am an MD/PhD student at Columbia University, and I currently work at the New York Genome Center in Dr. Tuuli Lappalainen's lab studying functional genomic variation. 
 
-![](https://media.giphy.com/media/drXGoW1iudhKw/giphy.gif)
+![](pics/fam_pic.JPG)
 
+Learn more about me [here](about.html).
 
-# Set up a link to another page:
+Learn more about the cat in the photo [here]().
 
-Learn about me [here](about.html)
-
-# Adding links
-
-Brackets indicate the text that will appear on the page, then in parentheses is the link.
-
-[google](https://www.google.com)
-
-# Adding images
-
-Image syntax is an exclamation mark with brackets, with file name or path to file with name in parentheses (put file inside the repository). If use web link, download local version to ensure later you don't get an error if it's moved/deleted/etc.
-
-![]()
-
-# Navigation
-
-set up in text file and save as _site.yaml
-
-
-# Build
-
-use to render entire website to check it all works.
-
-# Bootswatch
-
-this is where to get all the themes from. (obvi can also get from elsewhere, but this is all within R already). Not really worth it to learn the html you need to make your own special theme.
