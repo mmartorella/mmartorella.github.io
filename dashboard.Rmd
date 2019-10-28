@@ -6,40 +6,41 @@ output:
     vertical_layout: fill
 ---
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE, cache=TRUE}
 library(flexdashboard)
-
-
 library(tidyverse)
 library(viridis)
-library(p8105.datasets)
-
+library(rnoaa)
 library(plotly)
-```
 
-```{r}
+stations <- ghcnd_stations()
 
-set.seed(1)
+stations %>% 
+  filter(state == "NY", name == "BUFFALO") %>% 
+  group_by(id) %>% 
+  summarise(ly = max(last_year),
+            min = min(first_year))
 
-data(nyc_airbnb)
+stations %>% 
+  filter(state == "NY", str_detect(name, "ALBANY")) %>% 
+  group_by(id) %>% 
+  summarise(ly = max(last_year),
+            min = min(first_year))
 
-nyc_airbnb = 
-  nyc_airbnb %>% 
-  mutate(rating = review_scores_location / 2) %>%
-  select(
-    neighbourhood_group, neighbourhood, rating, price, room_type, lat, long) %>%
-  filter(
-    !is.na(rating), 
-    neighbourhood_group == "Manhattan",
-    room_type == "Entire home/apt",
-    price %in% 100:500)  %>% 
-  sample_n(5000)
+#central park id is USW00094728
 
-common_neighborhoods =
-  nyc_airbnb %>% 
-  count(neighbourhood, sort = TRUE) %>% 
-  top_n(8) %>% 
-  select(neighbourhood)
+nystationids <- c("USW00014733", "USW00014735", "USW00094728")
+
+nydat <- meteo_pull_monitors(nystationids, 
+                             date_min = "2018-01-01", 
+                             date_max = "2018-12-31", 
+                             var = c("PRCP", "SNOW", "SNWD", "TMAX", "TMIN")) %>% 
+  mutate(name = recode(id, USW00014733 = "Buffalo_NY",
+                       USW00014735 = "Albany_NY",
+                       USW00094728 = "CentralPark_NY"),
+         tmin = tmin / 10,
+         tmax = tmax / 10) %>%
+  select(name, id, everything())
 
 ```
 
@@ -50,11 +51,11 @@ Column {data-width=650}
 
 ```{r}
 
-nyc_airbnb %>%
-  mutate(text_label = str_c("Price: $", price, '\nRating: ', rating)) %>% 
+nydat %>% 
+  mutate(text_label = str_c("Date: ", date)) %>%
   plot_ly(
-    x = ~lat, y = ~long, type = "scatter", mode = "markers",
-    color = ~price, text = ~text_label, alpha = 0.5)
+    x = ~tmin, y = ~tmax, type = "scatter", mode = "markers",
+    color = ~name, text = ~text_label, alpha = 0.4, size = 6)
 
 ```
 
@@ -65,10 +66,8 @@ Column {data-width=350}
 
 ```{r}
 
-inner_join(nyc_airbnb, common_neighborhoods, by = "neighbourhood") %>% 
-  mutate(neighbourhood = fct_reorder(neighbourhood, price)) %>% 
-  plot_ly(y = ~price, color = ~neighbourhood, type = "box",
-          colors = "Set2")
+nydat %>% 
+  plot_ly(x = ~name, y = ~snow, color = ~name, type = "bar")
 
 ```
 
@@ -76,10 +75,9 @@ inner_join(nyc_airbnb, common_neighborhoods, by = "neighbourhood") %>%
 
 ```{r}
 
-nyc_airbnb %>% 
-  count(neighbourhood) %>% 
-  mutate(neighbourhood = fct_reorder(neighbourhood, n)) %>% 
-  plot_ly(x = ~neighbourhood, y = ~n, color = ~neighbourhood, type = "bar")
+nydat %>% 
+  na.omit() %>% 
+  plot_ly(y = ~prcp, color = ~name, type = "box")
 
 ```
 

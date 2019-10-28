@@ -1,0 +1,16 @@
+base
+flexdashboard
+tidyverse
+ggplot2
+tibble
+tidyr
+readr
+purrr
+dplyr
+stringr
+forcats
+viridisLite
+viridis
+rnoaa
+plotly
+p8105.datasets

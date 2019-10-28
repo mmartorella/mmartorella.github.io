@@ -7,7 +7,9 @@ navbar:
       href: about.html
     - text: "Moon"
       href: moon.html 
-    - text: "Dashboard"
+    - text: "Weather"
+      menu:
+      - text: "Dashboard"
       href: dashboard.html
     - icon: fa-envelope fa-lg
       href: mailto:<mem2331@cumc.columbia.edu>
