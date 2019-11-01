@@ -6,12 +6,14 @@ output:
     vertical_layout: fill
 ---
 
-```{r setup, include=FALSE, cache=TRUE}
+```{r setup, include=FALSE}
+
 library(flexdashboard)
 library(tidyverse)
 library(viridis)
 library(rnoaa)
 library(plotly)
+library(lubridate)
 
 stations <- ghcnd_stations()
 
@@ -39,7 +41,8 @@ nydat <- meteo_pull_monitors(nystationids,
                        USW00014735 = "Albany_NY",
                        USW00094728 = "CentralPark_NY"),
          tmin = tmin / 10,
-         tmax = tmax / 10) %>%
+         tmax = tmax / 10,
+         prcp = prcp / 10) %>%
   select(name, id, everything())
 
 ```
@@ -47,7 +50,7 @@ nydat <- meteo_pull_monitors(nystationids,
 Column {data-width=650}
 -----------------------------------------------------------------------
 
-### Chart A
+### Min and Max Temperature Relationship
 
 ```{r}
 
@@ -62,22 +65,55 @@ nydat %>%
 Column {data-width=350}
 -----------------------------------------------------------------------
 
-### Chart B
+### Snowfall during Winter
 
 ```{r}
 
-nydat %>% 
-  plot_ly(x = ~name, y = ~snow, color = ~name, type = "bar")
+alb <- nydat %>% 
+  filter(name == "Albany_NY",
+         date <= as.Date("2018-04-20")) %>% 
+  select(snow) %>% 
+  rename("Albany_NY" = snow)
+buf <- nydat %>% 
+  filter(name == "Buffalo_NY",
+         date <= as.Date("2018-04-20")) %>% 
+  select(snow) %>% 
+  rename("Buffalo_NY" = snow)
+nyc <- nydat %>% 
+  filter(name == "CentralPark_NY",
+         date <= as.Date("2018-04-20")) %>% 
+  select(snow) %>% 
+  rename("CentralPark_NY" = snow)
+x <- nydat %>% 
+  select(date) %>% 
+  distinct() %>% 
+  filter(date <= as.Date("2018-04-20"))
+
+d <-  cbind(x, alb, buf, nyc)
+
+y <- list(
+  title = "Snowfall amount (mm)"
+)
+
+plot_ly(d, x = ~date, y = ~Albany_NY, name = 'Albany_NY', type = 'scatter', mode = 'lines') %>%
+  add_trace(y = ~Buffalo_NY, name = 'Buffalo_NY', mode = 'lines') %>%
+  add_trace(y = ~CentralPark_NY, name = 'CentralPark_NY', mode = 'lines') %>% 
+  layout(yaxis = y)
 
 ```
 
-### Chart C
+### Rainfall
 
 ```{r}
 
+y <- list(
+  title = "Log Transformed Precip. amount (mm)"
+)
+
 nydat %>% 
   na.omit() %>% 
-  plot_ly(y = ~prcp, color = ~name, type = "box")
+  plot_ly(y = ~log(prcp), color = ~name, type = "box") %>% 
+  layout(yaxis = y)
 
 ```
 
